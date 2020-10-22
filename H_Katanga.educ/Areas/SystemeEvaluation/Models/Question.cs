@@ -28,14 +28,6 @@ namespace H_Katanga.educ.Areas.SystemeEvaluation.Models
                 return totaux;
             }
         }
-        public List<Assertion> LesAssertions
-        {
-            get
-            {
-                return (List<Assertion>)Assertions;
-            }            
-        }
-
         public ICollection<Assertion> Assertions { get; set; }
     }
 }

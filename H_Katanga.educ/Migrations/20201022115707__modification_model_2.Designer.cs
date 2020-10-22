@@ -4,14 +4,16 @@ using H_Katanga.educ.Areas.EcoleStruct.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace H_Katanga.educ.Migrations
 {
     [DbContext(typeof(EcoleStructureDb))]
-    partial class EcoleStructureDbModelSnapshot : ModelSnapshot
+    [Migration("20201022115707__modification_model_2")]
+    partial class _modification_model_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

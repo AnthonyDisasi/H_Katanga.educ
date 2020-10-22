@@ -34,5 +34,7 @@ namespace H_Katanga.educ.Areas.SuivisProfesseur.Models
                 return Nom + " " + Postnom + " " + Prenom;
             }
         }
+
+        public CotationProfesseur CotationProfesseur { get; set; }
     }
 }

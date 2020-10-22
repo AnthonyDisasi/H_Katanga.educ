@@ -24,13 +24,7 @@ namespace H_Katanga.educ.Areas.EcoleStruct.Models
                 return Niveau + " " + Section + " " + Option;
             }
         }
-        public List<Cours> ListCours
-        {
-            get
-            {
-                return (List<Cours>)Cours;
-            }
-        }
+
         public List<Eleve> ListEleve
         {
             get

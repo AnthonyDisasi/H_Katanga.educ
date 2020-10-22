@@ -4,14 +4,16 @@ using H_Katanga.educ.Areas.EcoleStruct.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace H_Katanga.educ.Migrations
 {
     [DbContext(typeof(EcoleStructureDb))]
-    partial class EcoleStructureDbModelSnapshot : ModelSnapshot
+    [Migration("20201022115018__modification_model_")]
+    partial class _modification_model_
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,6 +41,8 @@ namespace H_Katanga.educ.Migrations
 
                     b.Property<string>("EcoleID");
 
+                    b.Property<string>("EleveID");
+
                     b.Property<string>("Niveau")
                         .IsRequired();
 
@@ -50,6 +54,8 @@ namespace H_Katanga.educ.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("EcoleID");
+
+                    b.HasIndex("EleveID");
 
                     b.ToTable("Classes");
                 });
@@ -250,6 +256,10 @@ namespace H_Katanga.educ.Migrations
                     b.HasOne("H_Katanga.educ.Areas.EcoleStruct.Models.Ecole", "Ecole")
                         .WithMany("Classes")
                         .HasForeignKey("EcoleID");
+
+                    b.HasOne("H_Katanga.educ.Areas.EcoleStruct.Models.Eleve")
+                        .WithMany("ListClasse")
+                        .HasForeignKey("EleveID");
                 });
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Cours", b =>
