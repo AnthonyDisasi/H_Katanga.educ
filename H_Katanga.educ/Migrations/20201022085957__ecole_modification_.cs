@@ -1,10 +1,9 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace H_Katanga.educ.Migrations
 {
-    public partial class _inti_EcoleStructure_1_ : Migration
+    public partial class _ecole_modification_ : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,8 +11,7 @@ namespace H_Katanga.educ.Migrations
                 name: "categories",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<string>(nullable: false),
                     Nom = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -25,8 +23,7 @@ namespace H_Katanga.educ.Migrations
                 name: "Directeurs",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<string>(nullable: false),
                     Nom = table.Column<string>(nullable: false),
                     Postnom = table.Column<string>(nullable: false),
                     Prenom = table.Column<string>(nullable: false),
@@ -44,8 +41,7 @@ namespace H_Katanga.educ.Migrations
                 name: "Eleves",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<string>(nullable: false),
                     Nom = table.Column<string>(nullable: false),
                     Postnom = table.Column<string>(nullable: false),
                     Prenom = table.Column<string>(nullable: false),
@@ -62,8 +58,7 @@ namespace H_Katanga.educ.Migrations
                 name: "Options",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<string>(nullable: false),
                     Nom = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -75,8 +70,7 @@ namespace H_Katanga.educ.Migrations
                 name: "Sections",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<string>(nullable: false),
                     Nom = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -88,8 +82,7 @@ namespace H_Katanga.educ.Migrations
                 name: "SousDivisions",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<string>(nullable: false),
                     Nom = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -101,9 +94,8 @@ namespace H_Katanga.educ.Migrations
                 name: "Ecoles",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DirecteurID = table.Column<int>(nullable: false),
+                    ID = table.Column<string>(nullable: false),
+                    DirecteurID = table.Column<string>(nullable: true),
                     Nom = table.Column<string>(nullable: false),
                     EcoleLatitude = table.Column<string>(nullable: true),
                     EcoleLongitude = table.Column<string>(nullable: true),
@@ -117,16 +109,15 @@ namespace H_Katanga.educ.Migrations
                         column: x => x.DirecteurID,
                         principalTable: "Directeurs",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Classes",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    EcoleID = table.Column<int>(nullable: false),
+                    ID = table.Column<string>(nullable: false),
+                    EcoleID = table.Column<string>(nullable: true),
                     Niveau = table.Column<string>(nullable: false),
                     Section = table.Column<string>(nullable: false),
                     Option = table.Column<string>(nullable: true)
@@ -139,16 +130,15 @@ namespace H_Katanga.educ.Migrations
                         column: x => x.EcoleID,
                         principalTable: "Ecoles",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Professeurs",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    EcoleID = table.Column<int>(nullable: false),
+                    ID = table.Column<string>(nullable: false),
+                    EcoleID = table.Column<string>(nullable: true),
                     Nom = table.Column<string>(nullable: false),
                     Postnom = table.Column<string>(nullable: false),
                     Prenom = table.Column<string>(nullable: false),
@@ -165,16 +155,15 @@ namespace H_Katanga.educ.Migrations
                         column: x => x.EcoleID,
                         principalTable: "Ecoles",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Cours",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClasseID = table.Column<int>(nullable: false),
+                    ID = table.Column<string>(nullable: false),
+                    ClasseID = table.Column<string>(nullable: true),
                     Intituler = table.Column<string>(nullable: true),
                     Categorie = table.Column<string>(nullable: true)
                 },
@@ -186,19 +175,18 @@ namespace H_Katanga.educ.Migrations
                         column: x => x.ClasseID,
                         principalTable: "Classes",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Inscriptions",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    EleveId = table.Column<int>(nullable: false),
+                    ID = table.Column<string>(nullable: false),
+                    EleveId = table.Column<string>(nullable: true),
                     DateInscription = table.Column<DateTime>(nullable: false),
                     AnneeScolaire = table.Column<string>(nullable: true),
-                    ClasseID = table.Column<int>(nullable: true)
+                    ClasseID = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -214,7 +202,7 @@ namespace H_Katanga.educ.Migrations
                         column: x => x.EleveId,
                         principalTable: "Eleves",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -231,7 +219,8 @@ namespace H_Katanga.educ.Migrations
                 name: "IX_Ecoles_DirecteurID",
                 table: "Ecoles",
                 column: "DirecteurID",
-                unique: true);
+                unique: true,
+                filter: "[DirecteurID] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Inscriptions_ClasseID",

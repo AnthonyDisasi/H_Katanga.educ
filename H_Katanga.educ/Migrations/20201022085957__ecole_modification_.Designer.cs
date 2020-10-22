@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace H_Katanga.educ.Migrations
 {
     [DbContext(typeof(EcoleStructureDb))]
-    [Migration("20201021150256__inti_EcoleStructure_1_")]
-    partial class _inti_EcoleStructure_1_
+    [Migration("20201022085957__ecole_modification_")]
+    partial class _ecole_modification_
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,9 +23,8 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Categorie", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Nom")
                         .IsRequired();
@@ -37,11 +36,10 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Classe", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<int>("EcoleID");
+                    b.Property<string>("EcoleID");
 
                     b.Property<string>("Niveau")
                         .IsRequired();
@@ -60,13 +58,12 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Cours", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Categorie");
 
-                    b.Property<int>("ClasseID");
+                    b.Property<string>("ClasseID");
 
                     b.Property<string>("Intituler");
 
@@ -79,9 +76,8 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Directeur", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateNaissance");
 
@@ -108,11 +104,10 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Ecole", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<int>("DirecteurID");
+                    b.Property<string>("DirecteurID");
 
                     b.Property<string>("EcoleLatitude");
 
@@ -127,16 +122,16 @@ namespace H_Katanga.educ.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("DirecteurID")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[DirecteurID] IS NOT NULL");
 
                     b.ToTable("Ecoles");
                 });
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Eleve", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateNaissance");
 
@@ -161,17 +156,16 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Inscription", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("AnneeScolaire");
 
-                    b.Property<int?>("ClasseID");
+                    b.Property<string>("ClasseID");
 
                     b.Property<DateTime>("DateInscription");
 
-                    b.Property<int>("EleveId");
+                    b.Property<string>("EleveId");
 
                     b.HasKey("ID");
 
@@ -184,9 +178,8 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Option", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Nom")
                         .IsRequired();
@@ -198,13 +191,12 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Professeur", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateNaissance");
 
-                    b.Property<int>("EcoleID");
+                    b.Property<string>("EcoleID");
 
                     b.Property<string>("Email");
 
@@ -231,9 +223,8 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Section", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Nom")
                         .IsRequired();
@@ -245,9 +236,8 @@ namespace H_Katanga.educ.Migrations
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.SousDivision", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Nom")
                         .IsRequired();
@@ -261,24 +251,21 @@ namespace H_Katanga.educ.Migrations
                 {
                     b.HasOne("H_Katanga.educ.Areas.EcoleStruct.Models.Ecole", "Ecole")
                         .WithMany("Classes")
-                        .HasForeignKey("EcoleID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EcoleID");
                 });
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Cours", b =>
                 {
                     b.HasOne("H_Katanga.educ.Areas.EcoleStruct.Models.Classe", "Classe")
                         .WithMany("Cours")
-                        .HasForeignKey("ClasseID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ClasseID");
                 });
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Ecole", b =>
                 {
                     b.HasOne("H_Katanga.educ.Areas.EcoleStruct.Models.Directeur", "Directeur")
                         .WithOne("Ecole")
-                        .HasForeignKey("H_Katanga.educ.Areas.EcoleStruct.Models.Ecole", "DirecteurID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("H_Katanga.educ.Areas.EcoleStruct.Models.Ecole", "DirecteurID");
                 });
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Inscription", b =>
@@ -289,16 +276,14 @@ namespace H_Katanga.educ.Migrations
 
                     b.HasOne("H_Katanga.educ.Areas.EcoleStruct.Models.Eleve", "Eleve")
                         .WithMany("Inscriptions")
-                        .HasForeignKey("EleveId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EleveId");
                 });
 
             modelBuilder.Entity("H_Katanga.educ.Areas.EcoleStruct.Models.Professeur", b =>
                 {
                     b.HasOne("H_Katanga.educ.Areas.EcoleStruct.Models.Ecole", "Ecole")
                         .WithMany()
-                        .HasForeignKey("EcoleID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EcoleID");
                 });
 #pragma warning restore 612, 618
         }
