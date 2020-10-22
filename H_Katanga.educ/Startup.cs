@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using H_Katanga.educ.Areas.EcoleStruct.Data;
+using H_Katanga.educ.Areas.SuivisProfesseur.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +33,8 @@ namespace H_Katanga.educ
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            //SuivisProfesseur
+            services.AddDbContext<AppSuivisProfesseur>(options => options.UseSqlServer(this.Configuration.GetConnectionString("SuivisProfesseur")));
             services.AddDbContext<EcoleStructureDb>(options => options.UseSqlServer(this.Configuration.GetConnectionString("EcoleStructure")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

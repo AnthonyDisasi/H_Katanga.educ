@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace H_Katanga.educ.Areas.SuivisProfesseur.Data
 {
-    public class AppSuivisEcoleDb : DbContext
+    public class AppSuivisProfesseur : DbContext
     {
-        public AppSuivisEcoleDb(DbContextOptions<AppSuivisEcoleDb> options) : base (options) { }
+        public AppSuivisProfesseur(DbContextOptions<AppSuivisProfesseur> options) : base (options) { }
 
         public DbSet<CotationProfesseur> CotationProfesseurs { get; set; }
         public DbSet<Inspecteur> Inspecteurs { get; set; }

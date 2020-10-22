@@ -14,7 +14,7 @@ namespace H_Katanga.educ.Areas.SuivisProfesseur.Models
         public int ID { get; set; }
 
         public string IdentifiantCours { get; set; }
-        public string Matricule { get; set; }
+        public string MatriculeProfesseur { get; set; }
 
         public DateTime DateLecon { get; set; }
         public string Description { get; set; }
