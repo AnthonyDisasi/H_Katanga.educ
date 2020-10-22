@@ -4,14 +4,16 @@ using H_Katanga.educ.Areas.SuivisProfesseur.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
 {
     [DbContext(typeof(AppSuivisProfesseur))]
-    partial class AppSuivisProfesseurModelSnapshot : ModelSnapshot
+    [Migration("20201022114412__modification_model_")]
+    partial class _modification_model_
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

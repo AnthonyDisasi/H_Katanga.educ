@@ -7,9 +7,10 @@ namespace H_Katanga.educ.Areas.SuivisProfesseur.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-        public int LeconID { get; set; }
-        public int MatriculeInspecteur { get; set; }
+        public string ID { get; set; }
+
+        public string LeconID { get; set; }
+        public string InspecteurID { get; set; }
 
         public int Total { get; set; }
         public double Cote { get; set; }

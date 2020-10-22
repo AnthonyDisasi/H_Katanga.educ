@@ -1,6 +1,7 @@
 ﻿using H_Katanga.educ.Areas.EcoleStruct.Data;
 using H_Katanga.educ.Areas.PerformanceEleve.Data;
 using H_Katanga.educ.Areas.SuivisProfesseur.Data;
+using H_Katanga.educ.Areas.SystemeEvaluation.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,10 +30,11 @@ namespace H_Katanga.educ
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            //SuivisProfesseur
+            //Evaluation
             services.AddDbContext<AppSuivisProfesseur>(options => options.UseSqlServer(this.Configuration.GetConnectionString("SuivisProfesseur")));
             services.AddDbContext<EcoleStructureDb>(options => options.UseSqlServer(this.Configuration.GetConnectionString("EcoleStructure")));
             services.AddDbContext<AppPerformanceEleve>(options => options.UseSqlServer(this.Configuration.GetConnectionString("PerformanceEleve")));
+            services.AddDbContext<AppEvaluation>(options => options.UseSqlServer(this.Configuration.GetConnectionString("Evaluation")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

@@ -33,6 +33,20 @@ namespace H_Katanga.educ.Areas.EcoleStruct.Models
                 return Nom + " " + Postnom + " " + Prenom;
             }
         }
+
+        public List<Classe> ListClasse
+        {
+            get
+            {
+                List<Classe> classes = null;
+                foreach(Inscription cl in Inscriptions)
+                {
+                    classes.Add(cl.Classe);
+                }
+                return classes;
+            }
+        }
+
         public ICollection<Inscription> Inscriptions { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace H_Katanga.educ.Areas.SuivisProfesseur.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         public string IdentifiantCours { get; set; }
         public string MatriculeProfesseur { get; set; }
