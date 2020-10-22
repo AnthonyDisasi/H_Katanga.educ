@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using H_Katanga.educ.Areas.EcoleStruct.Data;
+﻿using H_Katanga.educ.Areas.EcoleStruct.Data;
+using H_Katanga.educ.Areas.PerformanceEleve.Data;
 using H_Katanga.educ.Areas.SuivisProfesseur.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +32,7 @@ namespace H_Katanga.educ
             //SuivisProfesseur
             services.AddDbContext<AppSuivisProfesseur>(options => options.UseSqlServer(this.Configuration.GetConnectionString("SuivisProfesseur")));
             services.AddDbContext<EcoleStructureDb>(options => options.UseSqlServer(this.Configuration.GetConnectionString("EcoleStructure")));
+            services.AddDbContext<AppPerformanceEleve>(options => options.UseSqlServer(this.Configuration.GetConnectionString("PerformanceEleve")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
