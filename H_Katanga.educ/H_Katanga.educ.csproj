@@ -11,4 +11,16 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Areas\EcoleStruct\Controllers\" />
+    <Folder Include="Areas\EcoleStruct\Views\" />
+    <Folder Include="Areas\PerformanceEleve\Controllers\" />
+    <Folder Include="Areas\PerformanceEleve\Views\" />
+    <Folder Include="Areas\SuivisProfesseur\Controllers\" />
+    <Folder Include="Areas\SuivisProfesseur\Views\" />
+    <Folder Include="Areas\SystemeEvaluation\Controllers\" />
+    <Folder Include="Areas\SystemeEvaluation\Views\" />
+  </ItemGroup>
+
 </Project>
