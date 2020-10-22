@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
 {
     [DbContext(typeof(AppSuivisProfesseur))]
-    [Migration("20201022115651__modification_model_2")]
-    partial class _modification_model_2
+    [Migration("20201022121005__modification_model_3")]
+    partial class _modification_model_3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,7 +96,7 @@ namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
             modelBuilder.Entity("H_Katanga.educ.Areas.SuivisProfesseur.Models.CotationProfesseur", b =>
                 {
                     b.HasOne("H_Katanga.educ.Areas.SuivisProfesseur.Models.Inspecteur", "Inspecteur")
-                        .WithMany()
+                        .WithMany("CotationProfesseurs")
                         .HasForeignKey("InspecteurID");
 
                     b.HasOne("H_Katanga.educ.Areas.SuivisProfesseur.Models.Lecon", "Lecon")

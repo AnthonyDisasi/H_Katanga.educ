@@ -1,5 +1,6 @@
 ﻿using H_Katanga.educ.Enumerations;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -35,6 +36,6 @@ namespace H_Katanga.educ.Areas.SuivisProfesseur.Models
             }
         }
 
-        public CotationProfesseur CotationProfesseur { get; set; }
+        public List<CotationProfesseur> CotationProfesseurs { get; set; }
     }
 }

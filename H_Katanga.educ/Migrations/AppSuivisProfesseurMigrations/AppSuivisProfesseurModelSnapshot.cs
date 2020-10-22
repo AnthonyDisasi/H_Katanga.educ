@@ -94,7 +94,7 @@ namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
             modelBuilder.Entity("H_Katanga.educ.Areas.SuivisProfesseur.Models.CotationProfesseur", b =>
                 {
                     b.HasOne("H_Katanga.educ.Areas.SuivisProfesseur.Models.Inspecteur", "Inspecteur")
-                        .WithMany()
+                        .WithMany("CotationProfesseurs")
                         .HasForeignKey("InspecteurID");
 
                     b.HasOne("H_Katanga.educ.Areas.SuivisProfesseur.Models.Lecon", "Lecon")

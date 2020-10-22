@@ -1,10 +1,9 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
 {
-    public partial class _migration_init_ : Migration
+    public partial class _modification_model_3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,10 +29,9 @@ namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
                 name: "Lecons",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<string>(nullable: false),
                     IdentifiantCours = table.Column<string>(nullable: true),
-                    Matricule = table.Column<string>(nullable: true),
+                    MatriculeProfesseur = table.Column<string>(nullable: true),
                     DateLecon = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
@@ -46,21 +44,19 @@ namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
                 name: "CotationProfesseurs",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    LeconID = table.Column<int>(nullable: false),
-                    InspecteurID = table.Column<int>(nullable: false),
+                    ID = table.Column<string>(nullable: false),
+                    LeconID = table.Column<string>(nullable: true),
+                    InspecteurID = table.Column<string>(nullable: true),
                     Total = table.Column<int>(nullable: false),
                     Cote = table.Column<double>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    InspecteurID1 = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CotationProfesseurs", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_CotationProfesseurs_Inspecteurs_InspecteurID1",
-                        column: x => x.InspecteurID1,
+                        name: "FK_CotationProfesseurs_Inspecteurs_InspecteurID",
+                        column: x => x.InspecteurID,
                         principalTable: "Inspecteurs",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
@@ -69,19 +65,20 @@ namespace H_Katanga.educ.Migrations.AppSuivisProfesseurMigrations
                         column: x => x.LeconID,
                         principalTable: "Lecons",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CotationProfesseurs_InspecteurID1",
+                name: "IX_CotationProfesseurs_InspecteurID",
                 table: "CotationProfesseurs",
-                column: "InspecteurID1");
+                column: "InspecteurID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CotationProfesseurs_LeconID",
                 table: "CotationProfesseurs",
                 column: "LeconID",
-                unique: true);
+                unique: true,
+                filter: "[LeconID] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

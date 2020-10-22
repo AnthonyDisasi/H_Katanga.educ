@@ -13,6 +13,7 @@ namespace H_Katanga.educ.Areas.SuivisProfesseur.Models
         public string IdentifiantCours { get; set; }
         public string MatriculeProfesseur { get; set; }
 
+        [Required(ErrorMessage = "La date de la leçon est obligatoire")]
         public DateTime DateLecon { get; set; }
         public string Description { get; set; }
 

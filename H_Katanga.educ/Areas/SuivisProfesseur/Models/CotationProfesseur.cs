@@ -12,7 +12,9 @@ namespace H_Katanga.educ.Areas.SuivisProfesseur.Models
         public string LeconID { get; set; }
         public string InspecteurID { get; set; }
 
+        [Required(ErrorMessage = "Le Total est obligatoire")]
         public int Total { get; set; }
+        [Required(ErrorMessage = "La cote est obligatoire")]
         public double Cote { get; set; }
         public string Description { get; set; }
 
